@@ -1,11 +1,11 @@
-package com.senai.calculator.dtos;
+package com.senai.calculator.dto;
 
-public class RequestDto {
+public class EntradaDto {
 
     private int numero1;
     private int numero2;
 
-    public RequestDto(){
+    public EntradaDto(){
     }
 
     public int getNumero1() {

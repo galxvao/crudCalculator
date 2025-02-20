@@ -1,11 +1,11 @@
-package com.senai.calculator.dtos;
+package com.senai.calculator.dto;
 
-public class ResponseDto {
+public class ResultadoDto {
 
     private int resultado;
 
 
-    public ResponseDto() {
+    public ResultadoDto() {
     }
 
     public int getResultado() {

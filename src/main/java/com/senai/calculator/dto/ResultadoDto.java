@@ -1,19 +1,15 @@
 package com.senai.calculator.dto;
 
+
+import lombok.Data;
+
+@Data
 public class ResultadoDto {
 
-    private int resultado;
+    private  Integer numero1;
+    private  Integer numero2;
+    private String operacao;
+    private Integer resultado;
 
-
-    public ResultadoDto() {
-    }
-
-    public int getResultado() {
-        return resultado;
-    }
-
-    public void setResultado(int resultado) {
-        this.resultado = resultado;
-    }
 
 }

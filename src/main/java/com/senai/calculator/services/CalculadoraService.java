@@ -8,68 +8,39 @@ import org.springframework.stereotype.Service;
 @Service
 public class CalculadoraService {
 
-    public ResultadoDto somar (EntradaDto dados){
+    public ResultadoDto operacao(EntradaDto dados){
 
         ResultadoDto resultado = new ResultadoDto();
 
-        resultado.setResultado(dados.getNumero1() + dados.getNumero2());
 
-        return resultado;
-    }
+        int resultadoOperacao  = 0;
 
-   public ResultadoDto subtrair (EntradaDto dados){
+        switch (dados.getOperacao()) {
+            case "+":
+                resultadoOperacao = dados.getNumero1() + dados.getNumero2();
+                break;
+            case "-":
+                resultadoOperacao = dados.getNumero1() - dados.getNumero2();
+                break;
+            case "*":
+                resultadoOperacao =  dados.getNumero1() * dados.getNumero2();
+                break;
+            case "/":
+                resultadoOperacao = dados.getNumero1() / dados.getNumero2();
+                break;
+            default:
+                throw new IllegalArgumentException("Operação inválida");
 
-        ResultadoDto resultado = new ResultadoDto();
-
-        resultado.setResultado(dados.getNumero1() - dados.getNumero2());
-
-        return resultado;
-    }
-
-    public ResultadoDto multiplicar (EntradaDto dados) {
-
-        ResultadoDto resultado = new ResultadoDto();
-        resultado.setResultado(dados.getNumero1() * dados.getNumero2());
-
-        return resultado;
-    }
-
-    public ResultadoDto dividir (EntradaDto dados){
-
-        ResultadoDto resultado = new ResultadoDto();
-
-        resultado.setResultado(dados.getNumero1() / dados.getNumero2());
-
-        return resultado;
-    }
-
-
-    public ResultadoDto potencia (EntradaDto dados){
-
-        ResultadoDto resultado = new ResultadoDto();
-
-        int resultadoPotencia = 1;
-
-        for (int i = 0; i < dados.getNumero2(); i++) {
-            resultadoPotencia *= dados.getNumero1();
         }
 
-       resultado.setResultado(resultadoPotencia);
+        resultado.setResultado(resultadoOperacao);
+        resultado.setNumero1(dados.getNumero1());
+        resultado.setNumero2(dados.getNumero2());
+        resultado.setOperacao(dados.getOperacao());
 
         return resultado;
+
+
     }
-
-    public ResultadoDto modulo (EntradaDto dados){
-
-        ResultadoDto resultado = new ResultadoDto();
-
-        resultado.setResultado(dados.getNumero1() % dados.getNumero2());
-
-        return resultado;
-    }
-
-
-
-
 
 }
